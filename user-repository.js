@@ -4,6 +4,12 @@ import bcrypt from "bcrypt";
 const { Schema } = new DBLocal({ path: './db' });
 import { SALT_ROUNDS } from "./utils/config.js";
 
+const Session = Schema('Session', {
+    _id: { type: String, required: true },
+    user: { type: String, required: true },
+    expires: { type: String, required: true },
+})
+
 const User = Schema('User', {
     _id: { type: String, required: true },
     username: { type: String, required: true },

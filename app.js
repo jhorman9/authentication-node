@@ -37,7 +37,7 @@ app.post('/register', async (req, res) => {
 app.post('/logout', (req, res) => {});
 app.get('/protected', (req, res) => {
     //TODO: if sesion del usuario
-    res.render('protected');
+    res.render('protected', { username: 'jhormanDev' });
     // TODO: else 401
 });
 

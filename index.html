@@ -1,0 +1,492 @@
+<?php 
+
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to-pdf</title>
+    <style>
+        * {
+    box-sizing: border-box;
+}
+
+body{
+    margin: auto;
+}
+
+/* Ocultar el ícono del calendario */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none; /* Para Chrome */
+}
+input[type="date"] {
+    -webkit-appearance: none; /* Para Safari */
+    appearance: none; /* Para otros navegadores */
+}
+
+.to-pdf{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 19cm;
+    height: 27.94cm;
+}
+
+.to-pdf table:first-child tbody td{
+    border-top: 0;
+}
+
+.to-pdf span, .to-pdf label, .to-pdf p, .to-pdf strong, .to-pdf input[type="text"]{
+    font-size: 11px;
+}
+
+.to-pdf .header-left .title-big{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.to-pdf .header-left .title-big > span{
+    font-weight: 400;
+}
+
+
+table.table-layout {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.header-left {
+    width: 20%; /* Ajusta el ancho de la celda izquierda */
+}
+
+.header-center {
+    width: 60%; /* Ajusta el ancho de la celda central */
+    text-align: center;
+}
+
+.header-right {
+    width: 20%; /* Ajusta el ancho de la celda derecha */
+    text-align: right;
+}
+
+.header-center{
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+td, table{
+    border-left: none;
+    border-right: none;
+}
+
+tr > td + td {
+    border-left: 1px solid black;
+}
+
+input{
+    border: none;
+}
+
+input[type="text"]{
+    width: 100%;
+}
+
+input:focus {
+    outline: none;
+}
+
+.m-0{
+    margin: 0;
+}
+
+.table-border-bottom{
+    border-bottom: 1px solid black;
+}
+
+.line-complete {
+    display: inline-block;
+    width: 100vw;
+    border-bottom: 1px dotted #000;
+    margin-left: 5px;
+    position: absolute !important;
+    bottom: 6px;
+    left: 99px;
+}
+
+.border-before::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    left: 0;
+    border-bottom: 1px dotted black;
+    top: 9px;
+    z-index: 1;
+}
+
+
+.part-1{
+    font-size: 12px;
+}
+
+.table-without-padding td {
+    padding: 0 3px;
+}
+
+.part-2{
+    border-top: 1px solid black;
+}
+
+.part-2 .backg-dark{
+    background-color: #000;
+    padding: 0 7px;
+    color: white;
+    font-size: initial;
+    margin-right: 7px;
+    font-size: 16px;
+    line-height: 0px;
+}
+
+strong.fs-13{
+    font-size: 13px;
+    margin-right: 7px;
+}
+
+table tr.without-border td{
+    border: none;
+}
+
+.note-if{
+    border-top: 1px solid black;
+}
+
+.note-if p{
+    margin: 0;
+    padding: 3px 0;
+}
+
+.table-letter-small td{
+    font-size: 11px;
+}
+
+.border-bottom-table{
+    border-bottom: 1px solid black;
+}
+
+.border-top-none{
+    border-top: 0 !important;
+}
+
+.tablet-listed td{
+    padding-left: 8px;
+}
+
+
+.header {
+    width: 150px;
+    vertical-align: top;
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+.content {
+    vertical-align: top;
+}
+
+.line {
+    border-bottom: 1px solid black;
+    width: 467px;
+    display: inline-block;
+}
+
+.date {
+    border-bottom: 1px solid black;
+    width: 150px;
+    display: inline-block;
+}
+
+.spacer {
+    padding-left: 20px;
+}
+    </style>
+</head>
+<body class="to-pdf content" id="content">
+    <table border="1" cellpadding="5" cellspacing="0" style="border: 0">
+        <tbody class="table-border-bottom">
+            <tr>
+                <td class="header-left" colspan="1">
+                    <p class="m-0 title-big"><span class="">Form</span> W-8BEN</p>
+                    <p class="m-0">(Rev. October 2021)</p>
+                    <p class="m-0">Department of the Treasury Internal Revenue Service</p>
+                </td>
+                <td class="header-center" colspan="2">
+                    <h5 class="m-0"><strong style="font-size: 16px;">Certificate of Foreign Status of Beneficial Owner for United</strong> <br />
+                    <strong style="font-size: 16px;">States Tax Withholding and Reporting (Individuals)</strong></h5>
+                    <h6 class="m-0"><strong>▶ for use by individuals. Entities must use Form W-8BEN-E.</strong></h6>
+                    <h6 class="m-0"><strong>▶ Go to www.irs.gov/FormW8BEN for instructions and the latest information.</strong></h6>
+                    <h6 class="m-0"><strong>▶ Give this form to the withholding agent or payer. Do not send to the IRS.</strong></h6>
+                </td>
+                <td class="header-right" colspan="1">
+                    <span class="m-0">OMB No. 1545-1621</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <main>
+        <table class="not-use-form" style="overflow: hidden;">
+            <tr class="do-not-use">
+                <td colspan="1" border="0" style="border-right: none !important;">
+                    <h6 style="margin: 0; font-size: 12px;">Do NOT use this form if:</h6>
+                </td>
+                <td colspan="2" border="0" align="end" style="border-left: none !important; width: 140px;">
+                    <h6 style="margin: 0; font-size: 12px;">Instead, use Form:</h6>
+                </td>
+            </tr>
+            <tr class="do-not-use">
+                <td colspan="1" border="0" style="border-right: none !important; text-align: left;">
+                    <h6 style="margin: 0; font-weight: 400">• You are NOT an individual</h6>
+                </td>
+                <td colspan="2" border="0" align="right" style="border-left: none !important; text-align: right;">
+                    <h6 style="margin: 0; font-weight: 400">W-8BEN-E</h6>
+                </td>
+            </tr>
+            <tr class="do-not-use">
+                <td colspan="1" border="0" style="border-right: none !important; text-align: left;">
+                    <h6 style="margin: 0; font-weight: 400">• You are a U.S. citizen or other U.S. person, including a resident alien individual</h6>
+                </td>
+                <td colspan="2" border="0" align="right" style="border-left: none !important; text-align: right;">
+                    <h6 style="margin: 0; font-weight: 400">W-9</h6>
+                </td>
+            </tr>
+            <tr class="do-not-use">
+                <td colspan="1" border="0" style="border-right: none !important; text-align: left;">
+                    <h6 style="margin: 0; font-weight: 400">• You are a beneficial owner claiming that income is effectively connected with the conduct of trade or business within the United States (other than personal services)</h6>
+                </td>
+                <td colspan="2" border="0" align="right" style="border-left: none !important; text-align: right;">
+                    <h6 style="margin: 0; font-weight: 400">W-8ECI</h6>
+                </td>
+            </tr>
+            <tr class="do-not-use">
+                <td colspan="1" border="0" style="border-right: none !important; text-align: left;">
+                    <h6 style="margin: 0; font-weight: 400">• You are a beneficial owner who is receiving compensation for personal services performed in the United States</h6>
+                </td>
+                <td colspan="2" border="0" align="right" style="border-left: none !important; text-align: right;">
+                    <h6 style="margin: 0; font-weight: 400">8233 or W-4</h6>
+                </td>
+            </tr>
+            <tr class="do-not-use">
+                <td colspan="1" border="0" style="border-right: none !important; text-align: left;">
+                    <h6 style="margin: 0; font-weight: 400">• You are a person acting as an intermediary</h6>
+                </td>
+                <td colspan="2" border="0" align="right" style="border-left: none !important; text-align: right;">
+                    <h6 style="margin: 0; font-weight: 400">W-8IMY</h6>
+                </td>
+            </tr>
+        </table>
+        <div class="note-if">
+            <p><strong>Note: </strong>If you are resident in a FATCA partner jurisdiction (that is, a Model 1 IGA jurisdiction with reciprocity), certain tax account information may be provided to your jurisdiction of residence.</p>
+        </div>
+        <table border="1" cellpadding="5" cellspacing="0" class="table-without-padding">
+            <div class="part-2"><span style="font-size: 13px;"> <span class="backg-dark">Part l </span> <strong style="font-size: 13px;">Claim of Tax Treaty Benefits </strong>(for chapter 3 purposes only) (see instructions)</span></div>
+            <tr>
+                <td colspan="1">
+                    <label for="beneficial-owner"><strong class="fs-13">1</strong> Name of individual who is the beneficial owner</label><br />
+                    <span><?=$name_lastname;?></span>
+                </td>
+                <td colspan="2">
+                    <label for="country"><strong class="fs-13">2</strong> Country of citizenship</label><br />
+                    <span><?=$nationality;?></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <label for="permanent"><strong class="fs-13">3</strong> Permanent residence address (street, apt. or suite no., or rural route). <strong>Do not use a P.O. box or in-care-of address.</strong> <br></label>
+                    <span><?=$writedirection;?></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="1">
+                    <label for="cityortown">City or town, state or province. Include postal code where appropriate.</label><br>
+                    <span></span>
+                </td>
+                <td colspan="2">
+                    <label for="cityortown">Country</label><br>
+                    <span></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <label for="cityortown"><strong class="fs-13">4</strong> Mailing address (if different from above)</label><br>
+                    <span><?=$writedirection2;?></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="1">
+                    <label for="cityortown">City or town, state or province. Include postal code where appropriate</label><br>
+                    <span></span>
+                </td>
+                <td colspan="2">
+                    <label for="cityortown">Country</label><br>
+                    <span></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <label for="taxpayer"><strong class="fs-13">5</strong> U.S. taxpayer identification number (SSN or ITIN), if required (see instructions)</label> <br>
+                    <span></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="1" style="width:60%;">
+                    <label for="cityortown"><strong class="fs-13">6a</strong> Foreign tax identifying number (see instructions)</label><br>
+                    <span><?=$writetaxpayer;?></span>
+                </td>
+                <td colspan="2" style="width:40%;">
+                    <label for="cityortown" style="width: 100%;display: inline-block;"><strong class="fs-13">6b</strong> Check if FTIN not legally required <span style="" align="end"><span style=""><input type="checkbox" id="cityortown" value="Panama"></span></span></label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="1">
+                    <label for="cityortown"><strong class="fs-13">7</strong> Reference number(s) (see instructions) </label><br>
+                    <span></span>
+                </td>
+                <td colspan="2">
+                    <label for="cityortown"><strong class="fs-13">8</strong> Date of birth (MM-DD-YYYY) (see instructions)</label><br>
+                    <span><?=$birthdate0;?></span>
+                </td>
+            </tr>
+        </table>
+        <div class="part-2 border-top-none"><span style="font-size: 13px;"> <span class="backg-dark">Part ll </span> <strong style="font-size: 13px;">Claim of Tax Treaty Benefits </strong>(for chapter 3 purposes only) (see instructions)</span></div>
+        <table border="1" cellpadding="5" cellspacing="0" class="table-without-padding">
+            <tr class="without-border">
+                <td>
+                    <label for=""><strong class="fs-13">9</strong> I certify that the beneficial owner is a resident of <?=$nationality;?> within the meaning of the income tax treaty between the United States and that country.</label>
+                </td>
+            </tr>
+            <tr class="without-border">
+                <td>
+                    <label for=""><strong class="fs-13">10</strong> <strong>Special rates and conditions</strong> (if applicable—see instructions): The beneficial owner is claiming the provisions of Article and paragraph <br> <span class="line" style="width: 200px;">{ texto escribir }</span> of the treaty identified on line 9 above to claim a <span class="line" style="width: 75px">{ porcentaje }</span>% rate of withholding on (specify type of income): <br><span class="line" style="width: 100%;">{ texto escribir }</span> <br> Explain the additional conditions in the Article and paragraph the beneficial owner meets to be eligible for the rate of withholding: <span class="line" style="width: 100%;">{ texto escribir }</span> </label>
+                </td>
+            </tr>
+        </table>
+        <div class="part-2 border-bottom-table border-top-none"><span style="font-size: 13px;"> <span class="backg-dark">Part lll </span> <strong style="font-size: 13px;">Certification </strong></span></div>
+        <table class="table-letter-small">
+            <tr>
+                <td>
+                    <label for="" >Under penalties of perjury, I declare that I have examined the information on this form and to the best of my knowledge and belief it is true, correct, and complete. I further certify under penalties of perjury that:</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    • I am the individual that is the beneficial owner (or am authorized to sign for the individual that is the beneficial owner) of all the income or proceeds to which this form relates or am using this form to document myself for chapter 4 purposes;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    • This form relates to:
+                    <table class="table-letter-small tablet-listed">
+                        <tr>
+                            <td>(a) income not effectively connected with the conduct of a trade or business in the United States;</td>
+                        </tr>
+                        <tr>
+                            <td>(b) income effectively connected with the conduct of a trade or business in the United States but is not subject to tax under an applicable income tax treaty;</td>
+                        </tr>
+                        <tr>
+                            <td>(c) the partner’s share of a partnership’s effectively connected taxable income; or</td>
+                        </tr>
+                        <tr>
+                            <td>(d) the partner’s amount realized from the transfer of a partnership interest subject to withholding under section 1446(f);</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    • The person named on line 1 of this form is a resident of the treaty country listed on line 9 of the form (if any) within the meaning of the income tax treaty between the United States and that country; and
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    • For broker transactions or barter exchanges, the beneficial owner is an exempt foreign person as defined in the instructions.
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-top: 3px;">Furthermore, I authorize this form to be provided to any withholding agent that has control, receipt, or custody of the income of which I am the beneficial owner or any withholding agent that can disburse or make payments of the income of which I am the beneficial owner. <strong>I agree that I will submit a new form within 30 days if any certification made on this form becomes incorrect</strong>.</td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td class="header" style="border: none;"></td>
+                <td class="content" style="border: none;">
+                    <input type="checkbox" id="certify" name="certify">
+                    <label for="certify">I certify that I have the capacity to sign for the person identified on line 1 of this form.</label>
+                </td>
+            </tr>
+            <tr>
+                <td style="border: none; vertical-align: baseline; display: flex; align-items: center; gap: 10px; font-weight: bold; justify-content: center;">
+                    Sign Here <p class="triangule" style="margin: 0; transform: rotateZ(90deg) scale(1.5) rotateX(66deg);font-size: 24px;">▲</p>
+                </td>
+                <td style="border: none;">
+                    <table>
+                        <tr>
+                            <td style="border: none; padding-top: 9px;"><span class="line" style='width: 400px;'></span></td>
+                            <td style="border: none; padding-top: 6px;"><span class="date" style="text-align: center;"><?=$birthdate01;?></span></td>
+                        </tr>
+                        <tr>
+                            <td style="border: none; font-size: 11px;">Signature of beneficial owner (or individual authorized to sign for beneficial owner)</td>
+                            <td style="border: none; font-size: 11px; text-align: center;">Date (MM-DD-YYYY)</td>
+                        </tr>
+                        <tr>
+                            <td style="border: none;" colspan="3"><span class="line" style='width: 400px;'><?=$name_lastname;?></span></td>
+                        </tr>
+                        <tr>
+                            <td style="border: none; font-size: 11px;">Print name of signer</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td colspan="3" style="line-height: 0;">
+                    <span class="line" style="width: 100%"></span> <br>
+                </td>
+            </tr>
+            <tr>
+                <td style="font-size: 11px; border: none; font-weight: bold;">For Paperwork Reduction Act Notice, see separate instructions.</td>
+                <td style="font-size: 11px; border: none;">Cat. No. 25047Z</td>
+                <td align="end" style="font-size: 11px; border: none;">Form <span style="font-size: 18px; font-weight: bold;">W-8BEN</span> (Rev. 10-2021)</td>
+            </tr>
+        </table>
+    </main>
+    <script>
+        function adjustWidthForOS() {
+            const userAgent = window.navigator.userAgent.toLowerCase();
+            const lines = document.querySelectorAll('.line');
+    
+            // Detectar si es macOS
+            if (userAgent.indexOf('mac') !== -1) {
+                lines.forEach(line => {
+                    // Obtener el valor de ajuste desde el atributo data
+                    const pixelAdjustment = line.getAttribute('data-adjust');
+                    
+                    // Ajustar el ancho al valor obtenido
+                    if (pixelAdjustment) {
+                        line.style.width = pixelAdjustment + 'px';
+                    }
+                });
+            }
+        }
+    
+        // Llama a la función al cargar la página
+        document.addEventListener('DOMContentLoaded', adjustWidthForOS);
+    </script>
+</body>
+</html>

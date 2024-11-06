@@ -164,10 +164,14 @@
             })
             .then(res => {
                 if(res.ok) {
-                    registerSpan.innerText = 'Usuario registrado... Entrando...'
-                    registerSpan.style.color = 'green';
-                    setTimeout(() => {
-                        window.location.href = '/protected'
+                    registerSpan.innerText = 'Registrando usuario...'
+                    registerSpan.style.color = 'yellow';
+                     setTimeout(() => {
+                        registerSpan.innerText = 'Inicie sesion ahora!'
+                        registerSpan.style.color = 'yellow';
+                        $('#register-username').value = ''
+                        $('#register-password').value = ''
+                        $('#register-confirm-password').value = ''
                     }, 2000);
                 }else {
                     registerSpan.innerText = 'Error al iniciar sesión. Inténtelo de nuevo.';
